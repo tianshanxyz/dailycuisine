@@ -12,5 +12,11 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Fallback for browsers that don't support ES modules
+      if (!('noModule' in HTMLScriptElement.prototype)) {
+        window.location.href = '/legacy-browser.html';
+      }
+    </script>
   </body>
 </html>
