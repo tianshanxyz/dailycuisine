@@ -1,10 +1,9 @@
-import { useState, useMemo } from 'react'
+import { useState } from 'react'
 import { Calendar, Download, TrendingUp, TrendingDown, DollarSign } from 'lucide-react'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line, Legend } from 'recharts'
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line } from 'recharts'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { format, subDays, subWeeks, subMonths, startOfWeek, endOfWeek, eachDayOfInterval, eachWeekOfInterval, eachMonthOfInterval, startOfMonth, endOfMonth } from 'date-fns'
-import { zhCN } from 'date-fns/locale'
+import { format, subWeeks, subMonths } from 'date-fns'
 
 type TimeRange = 'week' | 'month' | 'quarter' | 'custom'
 
@@ -33,7 +32,7 @@ export default function PurchaseAnalytics() {
   const [customStartDate, setCustomStartDate] = useState('')
   const [customEndDate, setCustomEndDate] = useState('')
 
-  const dateRange = useMemo(() => {
+  const _dateRange = useMemo(() => {
     const now = new Date()
     switch (timeRange) {
       case 'week':
@@ -230,7 +229,7 @@ export default function PurchaseAnalytics() {
                     fill="#8884d8"
                     dataKey="value"
                   >
-                    {categoryData.map((entry, index) => (
+                    {categoryData.map((_entry, index) => (
                       <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                     ))}
                   </Pie>

@@ -2,8 +2,6 @@ import { useState } from 'react'
 import { ShoppingCart, Check, Download, TrendingUp } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { format, subDays, startOfWeek, endOfWeek } from 'date-fns'
-import { zhCN } from 'date-fns/locale'
 
 const mockShoppingItems = [
   { id: '1', name: '五花肉', amount: 500, unit: '克', estimated_price: 25, category: '肉类', purchased: false },

@@ -63,7 +63,7 @@ const mockDish = {
 }
 
 export default function DishDetail() {
-  const { id } = useParams()
+  const { id: _id } = useParams()
   const navigate = useNavigate()
 
   return (

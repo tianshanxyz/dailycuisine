@@ -28,7 +28,7 @@ export class BaiduAIService {
 
   constructor(config?: BaiduAIConfig) {
     this.apiKey = config?.apiKey || import.meta.env.VITE_BAIDU_AI_API_KEY || ''
-    this.secretKey = config?.secretKey || import.meta.env.VAIDU_AI_SECRET_KEY || ''
+    this.secretKey = config?.secretKey || import.meta.env.VITE_BAIDU_AI_SECRET_KEY || ''
   }
 
   private async getAccessToken(): Promise<string> {
@@ -95,7 +95,7 @@ export class BaiduAIService {
     }
   }
 
-  async analyzeNutrition(dishName: string, ingredients: string[]): Promise<NutritionAnalysis> {
+  async analyzeNutrition(dishName: string, _ingredients: string[]): Promise<NutritionAnalysis> {
     return {
       calories: this.estimateCalories(dishName),
       protein: Math.floor(Math.random() * 20 + 5),

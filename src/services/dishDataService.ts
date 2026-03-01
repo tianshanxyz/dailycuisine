@@ -1,5 +1,5 @@
 import { supabase } from './supabase'
-import type { Dish, Ingredient } from '@/types'
+import type { Dish } from '@/types'
 
 interface ScraperConfig {
   platform: 'xiachufang' | 'xiaohongshu'
@@ -7,7 +7,7 @@ interface ScraperConfig {
   rateLimit: number
 }
 
-const scraperConfigs: ScraperConfig[] = [
+const _scraperConfigs: ScraperConfig[] = [
   {
     platform: 'xiachufang',
     baseUrl: 'https://www.xiachufang.com',

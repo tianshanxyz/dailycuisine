@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Search, ChefHat, TrendingUp } from 'lucide-react'
 import { Button } from '@/components/ui/button'
