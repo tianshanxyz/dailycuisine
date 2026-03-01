@@ -47,7 +47,7 @@ export class BaiduAIService {
       if (data.access_token) {
         this.accessToken = data.access_token
         this.tokenExpireTime = Date.now() + (data.expires_in - 300) * 1000
-        return this.accessToken
+        return data.access_token
       }
       
       throw new Error('Failed to get access token')

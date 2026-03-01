@@ -1,25 +1,6 @@
 import { supabase } from './supabase'
 import type { Dish } from '@/types'
 
-interface ScraperConfig {
-  platform: 'xiachufang' | 'xiaohongshu'
-  baseUrl: string
-  rateLimit: number
-}
-
-const _scraperConfigs: ScraperConfig[] = [
-  {
-    platform: 'xiachufang',
-    baseUrl: 'https://www.xiachufang.com',
-    rateLimit: 2000
-  },
-  {
-    platform: 'xiaohongshu',
-    baseUrl: 'https://www.xiaohongshu.com',
-    rateLimit: 3000
-  }
-]
-
 export class DishDataService {
   private cache: Map<string, Dish[]> = new Map()
   private lastFetchTime: Map<string, number> = new Map()

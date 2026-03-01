@@ -3,7 +3,8 @@ import { Calendar, Download, TrendingUp, TrendingDown, DollarSign } from 'lucide
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line } from 'recharts'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { format, subWeeks, subMonths } from 'date-fns'
+import { format } from 'date-fns'
+import { zhCN } from 'date-fns/locale'
 
 type TimeRange = 'week' | 'month' | 'quarter' | 'custom'
 
@@ -31,25 +32,6 @@ export default function PurchaseAnalytics() {
   const [timeRange, setTimeRange] = useState<TimeRange>('week')
   const [customStartDate, setCustomStartDate] = useState('')
   const [customEndDate, setCustomEndDate] = useState('')
-
-  const _dateRange = useMemo(() => {
-    const now = new Date()
-    switch (timeRange) {
-      case 'week':
-        return { start: subWeeks(now, 1), end: now }
-      case 'month':
-        return { start: subMonths(now, 1), end: now }
-      case 'quarter':
-        return { start: subMonths(now, 3), end: now }
-      case 'custom':
-        return { 
-          start: customStartDate ? new Date(customStartDate) : subWeeks(now, 1), 
-          end: customEndDate ? new Date(customEndDate) : now 
-        }
-      default:
-        return { start: subWeeks(now, 1), end: now }
-    }
-  }, [timeRange, customStartDate, customEndDate])
 
   const totalAmount = mockPurchaseData.reduce((sum, item) => sum + item.amount, 0)
   const avgDailyAmount = totalAmount / mockPurchaseData.length
