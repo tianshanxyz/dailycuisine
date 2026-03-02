@@ -8,6 +8,7 @@ import Profile from './pages/Profile'
 import DishDetail from './pages/DishDetail'
 import SearchPage from './pages/SearchPage'
 import UserPreferences from './pages/UserPreferences'
+import AIPlanning from './pages/AIPlanning'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -31,6 +32,7 @@ function App() {
             <Route path="dish/:id" element={<DishDetail />} />
             <Route path="search" element={<SearchPage />} />
             <Route path="preferences" element={<UserPreferences />} />
+            <Route path="ai-planning" element={<AIPlanning />} />
           </Route>
         </Routes>
       </Router>
