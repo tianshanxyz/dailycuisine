@@ -7,6 +7,7 @@ import Shopping from './pages/Shopping'
 import Profile from './pages/Profile'
 import DishDetail from './pages/DishDetail'
 import SearchPage from './pages/SearchPage'
+import UserPreferences from './pages/UserPreferences'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -29,6 +30,7 @@ function App() {
             <Route path="profile" element={<Profile />} />
             <Route path="dish/:id" element={<DishDetail />} />
             <Route path="search" element={<SearchPage />} />
+            <Route path="preferences" element={<UserPreferences />} />
           </Route>
         </Routes>
       </Router>
